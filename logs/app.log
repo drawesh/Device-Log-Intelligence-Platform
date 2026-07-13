@@ -1,0 +1,799 @@
+2026-05-01 16:00:48,672 - root - INFO - Initializing database...
+2026-05-01 16:00:48,674 - root - INFO - Database initialized successfully
+2026-05-01 16:00:48,675 - root - INFO - Shutting down application...
+2026-05-02 01:01:30,684 - root - INFO - Initializing database...
+2026-05-02 01:01:30,693 - root - INFO - Database initialized successfully
+2026-05-02 01:04:15,084 - root - INFO - Initializing database...
+2026-05-02 01:04:15,085 - root - INFO - Database initialized successfully
+2026-05-02 01:06:32,857 - root - INFO - Initializing database...
+2026-05-02 01:06:32,858 - root - INFO - Database initialized successfully
+2026-05-02 01:06:32,859 - root - INFO - Shutting down application...
+2026-05-02 01:07:14,035 - root - INFO - Initializing database...
+2026-05-02 01:07:14,037 - root - INFO - Database initialized successfully
+2026-05-02 01:07:14,038 - root - INFO - Shutting down application...
+2026-05-02 01:25:18,382 - app.routes.logs - INFO - File saved: logs\20260502_012518_logcat.txt
+2026-05-02 01:25:18,535 - app.services.log_parser - INFO - Parsed 45060 logs, 3 malformed lines
+2026-05-02 01:25:21,983 - app.routes.logs - INFO - Inserted 45060 logs into database
+2026-05-02 01:25:22,037 - app.routes.logs - INFO - Updated error summary with 0 error types
+2026-05-02 01:45:12,558 - root - INFO - Initializing database...
+2026-05-02 01:45:12,569 - root - INFO - Database initialized successfully
+2026-05-02 01:46:10,182 - app.routes.logs - INFO - File saved: logs\20260502_014610_logcat.txt
+2026-05-02 01:46:10,338 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 01:46:16,655 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 01:46:16,708 - app.routes.logs - INFO - Updated error summary with 0 error types
+2026-05-02 01:59:12,590 - app.routes.logs - INFO - File saved: logs\20260502_015912_logcat.txt
+2026-05-02 01:59:12,745 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 01:59:17,975 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 01:59:18,028 - app.routes.logs - INFO - Updated error summary with 0 error types
+2026-05-02 02:04:39,846 - app.routes.logs - INFO - File saved: logs\20260502_020439_logcat.txt
+2026-05-02 02:04:39,999 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:04:45,438 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 02:04:45,486 - app.routes.logs - INFO - Updated error summary with 0 error types
+2026-05-02 02:05:07,696 - app.routes.logs - INFO - File saved: logs\20260502_020507_logcat.txt
+2026-05-02 02:05:07,786 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:05:13,198 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 02:05:13,249 - app.routes.logs - INFO - Updated error summary with 0 error types
+2026-05-02 02:06:48,369 - root - INFO - Initializing database...
+2026-05-02 02:06:48,406 - root - INFO - Database initialized successfully
+2026-05-02 02:06:48,407 - root - INFO - Shutting down application...
+2026-05-02 02:07:02,668 - root - INFO - Initializing database...
+2026-05-02 02:07:02,673 - root - INFO - Database initialized successfully
+2026-05-02 02:07:02,675 - root - INFO - Shutting down application...
+2026-05-02 02:07:31,131 - root - INFO - Initializing database...
+2026-05-02 02:07:31,133 - root - INFO - Database initialized successfully
+2026-05-02 02:07:31,134 - root - INFO - Shutting down application...
+2026-05-02 02:07:40,682 - root - INFO - Initializing database...
+2026-05-02 02:07:40,684 - root - INFO - Database initialized successfully
+2026-05-02 02:09:41,719 - root - INFO - Initializing database...
+2026-05-02 02:09:41,722 - root - INFO - Database initialized successfully
+2026-05-02 02:11:58,714 - app.routes.logs - ERROR - Error getting summary: (sqlite3.OperationalError) no such column: logs.pid
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT logs.id AS logs_id, logs.timestamp AS logs_timestamp, logs.pid AS logs_pid, logs.tid AS logs_tid, logs.level AS logs_level, logs.tag AS logs_tag, logs.message AS logs_message, logs.created_at AS logs_created_at 
+FROM logs) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: logs.pid
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Project\Device Log Intelligence Platform\app\routes\logs.py", line 237, in get_summary
+    total_logs = db.query(Log).count()
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\query.py", line 3153, in count
+    self._legacy_from_self(col).enable_eagerloads(False).scalar()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2842, in scalar
+    ret = self.one()
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2815, in one
+    return self._iter().one()  # type: ignore
+           ~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2864, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: logs.pid
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT logs.id AS logs_id, logs.timestamp AS logs_timestamp, logs.pid AS logs_pid, logs.tid AS logs_tid, logs.level AS logs_level, logs.tag AS logs_tag, logs.message AS logs_message, logs.created_at AS logs_created_at 
+FROM logs) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-02 02:12:26,326 - app.routes.logs - INFO - File saved: logs\20260502_021226_logcat.txt
+2026-05-02 02:12:27,229 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:12:29,174 - app.routes.logs - ERROR - Error uploading log file: (sqlite3.OperationalError) table logs has no column named pid
+[SQL: INSERT INTO logs (timestamp, pid, tid, level, tag, message) VALUES (?, ?, ?, ?, ?, ?) RETURNING id, created_at]
+[parameters: (None, None, None, 'FATAL', 'unknown', '01-01 10:48:13.583   562   562 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 562 (init), pid 562 (init)')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2125, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table logs has no column named pid
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Project\Device Log Intelligence Platform\app\routes\logs.py", line 188, in upload_log_file
+    db.commit()
+    ~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1143, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2133, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e,
+        ^^
+    ...<4 lines>...
+        is_sub_exec=True,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2125, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table logs has no column named pid
+[SQL: INSERT INTO logs (timestamp, pid, tid, level, tag, message) VALUES (?, ?, ?, ?, ?, ?) RETURNING id, created_at]
+[parameters: (None, None, None, 'FATAL', 'unknown', '01-01 10:48:13.583   562   562 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 562 (init), pid 562 (init)')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-02 02:12:43,348 - app.routes.logs - INFO - File saved: logs\20260502_021243_logcat.txt
+2026-05-02 02:12:44,228 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:12:46,467 - app.routes.logs - ERROR - Error uploading log file: (sqlite3.OperationalError) table logs has no column named pid
+[SQL: INSERT INTO logs (timestamp, pid, tid, level, tag, message) VALUES (?, ?, ?, ?, ?, ?) RETURNING id, created_at]
+[parameters: (None, None, None, 'FATAL', 'unknown', '01-01 10:48:13.583   562   562 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 562 (init), pid 562 (init)')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2125, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table logs has no column named pid
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Project\Device Log Intelligence Platform\app\routes\logs.py", line 188, in upload_log_file
+    db.commit()
+    ~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1143, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2133, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e,
+        ^^
+    ...<4 lines>...
+        is_sub_exec=True,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2125, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "d:\Project\Device Log Intelligence Platform\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table logs has no column named pid
+[SQL: INSERT INTO logs (timestamp, pid, tid, level, tag, message) VALUES (?, ?, ?, ?, ?, ?) RETURNING id, created_at]
+[parameters: (None, None, None, 'FATAL', 'unknown', '01-01 10:48:13.583   562   562 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 562 (init), pid 562 (init)')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-02 02:13:58,083 - root - INFO - Initializing database...
+2026-05-02 02:13:58,175 - root - INFO - Database initialized successfully
+2026-05-02 02:30:20,610 - root - INFO - Initializing database...
+2026-05-02 02:30:20,619 - root - INFO - Database initialized successfully
+2026-05-02 02:31:58,875 - app.routes.logs - INFO - File saved: logs\20260502_023158_logcat.txt
+2026-05-02 02:31:59,887 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:32:06,257 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 02:32:09,603 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 02:32:09,603 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 02:32:10,040 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 02:43:23,823 - root - INFO - Initializing database...
+2026-05-02 02:43:23,833 - root - INFO - Database initialized successfully
+2026-05-02 02:44:39,583 - app.routes.logs - INFO - File saved: logs\20260502_024439_logcat.txt
+2026-05-02 02:44:40,562 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:44:47,110 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 02:44:50,474 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 02:44:50,474 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 02:44:50,920 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 02:45:07,613 - app.routes.logs - INFO - File saved: logs\20260502_024507_logcat.txt
+2026-05-02 02:45:08,487 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:45:14,857 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 02:45:18,233 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 02:45:18,233 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 02:45:18,680 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 02:45:31,305 - app.routes.logs - INFO - File saved: logs\20260502_024531_logcat.txt
+2026-05-02 02:45:32,221 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 02:45:38,681 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 02:45:42,069 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 02:45:42,069 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 02:45:42,541 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 03:10:27,278 - root - INFO - Initializing database...
+2026-05-02 03:10:27,286 - root - INFO - Database initialized successfully
+2026-05-02 03:10:51,477 - root - INFO - Initializing database...
+2026-05-02 03:10:51,479 - root - INFO - Database initialized successfully
+2026-05-02 03:10:51,588 - root - INFO - Shutting down application...
+2026-05-02 03:12:21,053 - root - INFO - Initializing database...
+2026-05-02 03:12:21,055 - root - INFO - Database initialized successfully
+2026-05-02 03:12:21,056 - root - INFO - Shutting down application...
+2026-05-02 03:13:50,529 - root - INFO - Initializing database...
+2026-05-02 03:13:50,531 - root - INFO - Database initialized successfully
+2026-05-02 03:13:50,533 - root - INFO - Shutting down application...
+2026-05-02 04:05:10,477 - root - INFO - Initializing database...
+2026-05-02 04:05:10,486 - root - INFO - Database initialized successfully
+2026-05-02 11:15:35,754 - root - INFO - Initializing database...
+2026-05-02 11:15:35,761 - root - INFO - Database initialized successfully
+2026-05-02 12:45:04,534 - app.routes.logs - INFO - File saved: logs\20260502_124504_logcat.txt
+2026-05-02 12:45:05,808 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 12:45:12,741 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 12:45:16,500 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 12:45:16,500 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 12:45:16,941 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 12:45:33,032 - app.routes.logs - INFO - File saved: logs\20260502_124533_logcat.txt
+2026-05-02 12:45:33,918 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 12:45:40,367 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 12:45:43,679 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 12:45:43,679 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 12:45:44,126 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 13:12:21,661 - root - INFO - Initializing database...
+2026-05-02 13:12:21,671 - root - INFO - Database initialized successfully
+2026-05-02 13:14:47,478 - root - INFO - Initializing database...
+2026-05-02 13:14:47,482 - root - INFO - Database initialized successfully
+2026-05-02 13:14:47,483 - root - INFO - Shutting down application...
+2026-05-02 13:14:56,986 - root - INFO - Initializing database...
+2026-05-02 13:14:56,989 - root - INFO - Database initialized successfully
+2026-05-02 13:19:51,320 - root - INFO - Initializing database...
+2026-05-02 13:19:51,321 - root - INFO - Database initialized successfully
+2026-05-02 13:19:51,322 - root - INFO - Shutting down application...
+2026-05-02 13:56:44,565 - root - INFO - Initializing database...
+2026-05-02 13:56:44,574 - root - INFO - Database initialized successfully
+2026-05-02 13:58:04,033 - app.routes.logs - INFO - File saved: logs\20260502_135804_logcat.txt
+2026-05-02 13:58:04,263 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 13:58:11,014 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 13:58:13,300 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 13:58:13,300 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 13:58:13,657 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 14:01:53,402 - root - INFO - Initializing database...
+2026-05-02 14:01:53,405 - root - INFO - Database initialized successfully
+2026-05-02 14:03:01,993 - app.routes.logs - INFO - File saved: logs\20260502_140301_logcat.txt
+2026-05-02 14:03:02,251 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 14:03:10,148 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 14:03:12,673 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 14:03:12,674 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 14:03:13,070 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 14:06:21,670 - app.routes.logs - INFO - File saved: logs\20260502_140621_logcat.txt
+2026-05-02 14:06:22,031 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 14:06:30,124 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 14:06:32,422 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 14:06:32,422 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 14:06:32,778 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 14:48:47,007 - root - INFO - Initializing database...
+2026-05-02 14:48:47,016 - root - INFO - Database initialized successfully
+2026-05-02 14:49:15,361 - app.routes.logs - INFO - File saved: logs\20260502_144915_logcat.txt
+2026-05-02 14:49:15,607 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 14:49:23,669 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 14:49:26,212 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 14:49:26,212 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 14:49:26,641 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 14:49:51,636 - app.routes.logs - INFO - File saved: logs\20260502_144951_logcat.txt
+2026-05-02 14:49:51,876 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 14:50:00,402 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 14:50:02,886 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 14:50:02,886 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 14:50:03,281 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 14:52:08,708 - app.routes.logs - INFO - File saved: logs\20260502_145208_logcat.txt
+2026-05-02 14:52:08,920 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 14:52:15,443 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 14:52:17,729 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 14:52:17,729 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 14:52:18,086 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 14:57:48,449 - root - INFO - Initializing database...
+2026-05-02 14:57:48,452 - root - INFO - Database initialized successfully
+2026-05-02 14:58:52,509 - root - INFO - Initializing database...
+2026-05-02 14:58:52,511 - root - INFO - Database initialized successfully
+2026-05-02 15:02:34,223 - app.routes.logs - INFO - File saved: logs\20260502_150234_logcat.txt
+2026-05-02 15:02:34,563 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 15:02:43,112 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 15:02:46,200 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 15:02:46,200 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 15:02:46,580 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 15:03:25,189 - app.routes.logs - INFO - File saved: logs\20260502_150325_logcat.txt
+2026-05-02 15:03:25,403 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 15:03:31,916 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 15:03:34,229 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 15:03:34,230 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 15:03:34,589 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 15:08:41,054 - root - INFO - Initializing database...
+2026-05-02 15:08:41,057 - root - INFO - Database initialized successfully
+2026-05-02 15:21:49,952 - root - INFO - Shutting down application...
+2026-05-02 15:39:20,663 - root - INFO - Initializing database...
+2026-05-02 15:39:20,672 - root - INFO - Database initialized successfully
+2026-05-02 15:40:21,639 - app.routes.logs - INFO - File saved: logs\20260502_154021_logcat.txt
+2026-05-02 15:40:22,060 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 15:40:30,103 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 15:40:32,974 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 15:40:32,974 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 15:40:33,430 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 15:47:27,757 - root - INFO - Shutting down application...
+2026-05-02 16:37:38,473 - root - INFO - Initializing database...
+2026-05-02 16:37:38,482 - root - INFO - Database initialized successfully
+2026-05-02 16:40:57,775 - root - INFO - Shutting down application...
+2026-05-02 16:40:58,795 - root - INFO - Initializing database...
+2026-05-02 16:40:58,797 - root - INFO - Database initialized successfully
+2026-05-02 16:41:55,102 - app.routes.logs - INFO - File saved: logs\20260502_164155_logcat.txt
+2026-05-02 16:41:55,373 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 16:42:03,420 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 16:42:06,037 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 16:42:06,038 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 16:42:06,411 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 16:47:22,842 - root - INFO - Shutting down application...
+2026-05-02 16:47:24,080 - root - INFO - Initializing database...
+2026-05-02 16:47:24,083 - root - INFO - Database initialized successfully
+2026-05-02 16:47:27,536 - root - INFO - Shutting down application...
+2026-05-02 16:47:28,559 - root - INFO - Initializing database...
+2026-05-02 16:47:28,561 - root - INFO - Database initialized successfully
+2026-05-02 17:43:16,609 - root - INFO - Initializing database...
+2026-05-02 17:43:16,618 - root - INFO - Database initialized successfully
+2026-05-02 17:43:59,203 - app.routes.logs - INFO - File saved: logs\20260502_174359_logcat.txt
+2026-05-02 17:43:59,502 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 17:44:06,347 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 17:44:08,740 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 17:44:08,741 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 17:44:09,108 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 17:46:24,180 - app.routes.logs - INFO - File saved: logs\20260502_174624_logcat.txt
+2026-05-02 17:46:24,401 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 17:46:31,572 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 17:46:34,051 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 17:46:34,052 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 17:46:34,444 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 17:59:12,591 - app.routes.logs - INFO - File saved: logs\20260502_175912_logcat.txt
+2026-05-02 17:59:12,809 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 17:59:19,425 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 17:59:21,964 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 17:59:21,964 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 17:59:22,336 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:01:08,787 - app.routes.logs - INFO - File saved: logs\20260502_180108_logcat.txt
+2026-05-02 18:01:09,014 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:01:15,922 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:01:18,284 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:01:18,284 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:01:18,649 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:06:26,403 - app.routes.logs - INFO - File saved: logs\20260502_180626_logcat.txt
+2026-05-02 18:06:26,641 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:06:33,694 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:06:36,150 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:06:36,150 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:06:36,525 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:09:55,507 - app.routes.logs - INFO - File saved: logs\20260502_180955_logcat.txt
+2026-05-02 18:09:55,723 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:10:02,537 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:10:04,869 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:10:04,869 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:10:05,247 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:15:06,905 - app.routes.logs - INFO - File saved: logs\20260502_181506_logcat.txt
+2026-05-02 18:15:07,161 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:15:13,855 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:15:16,205 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:15:16,206 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:15:16,579 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:19:07,222 - app.routes.logs - INFO - File saved: logs\20260502_181907_logcat.txt
+2026-05-02 18:19:07,446 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:19:14,182 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:19:16,504 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:19:16,504 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:19:16,878 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:26:45,838 - app.routes.logs - INFO - File saved: logs\20260502_182645_logcat.txt
+2026-05-02 18:26:46,133 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:26:52,966 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:26:55,343 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:26:55,343 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:26:55,708 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:36:00,224 - app.routes.logs - INFO - File saved: logs\20260502_183600_logcat.txt
+2026-05-02 18:36:00,470 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:36:07,244 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:36:09,564 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:36:09,564 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:36:09,934 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:36:59,048 - app.routes.logs - INFO - File saved: logs\20260502_183659_logcat.txt
+2026-05-02 18:36:59,272 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:37:06,069 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:37:08,405 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:37:08,405 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:37:08,772 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:45:23,760 - app.routes.logs - INFO - File saved: logs\20260502_184523_logcat.txt
+2026-05-02 18:45:24,336 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:45:40,770 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:45:46,376 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:45:46,376 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45&cos=Android&soc=qcom%3Aholi&csdk=30&cbrver=21.17.481&cver=21.17.481&cosver=11&cbrand=Zebra%20Technologies&qclc=ChA5eTd1VDVvRkJJbW81XzAyGgCqAQA&conn=1128.936:3&cplayer=PLATYPUS&bh=852.722:0.00,853.651:15.47,883.652:70.76,913.653:100.75,943.654:100.81,973.654:100.79,1003.656:100.78,1033.657:100.74,1063.658:100.72,1093.662:100.81,1123.663:100.79&cmt=852.722:11710.882,853.651:11710.882,883.652:11739.700,913.653:11769.703,943.654:11799.749,973.654:11829.681,1003.656:11859.683,1033.657:11889.725,1063.658:11919.730,1093.662:11949.746,1123.663:11979.671&cache_bytes=853.651:1630953,883.652:5485943&mst=852.698:11710882&is_offline=852.698:0&sur=852.697:3&bat=1128.937:0.860:1&cat=sabr,sabr&vps=852.722:B,853.651:PL&bwm=913.653:3885147:0.986,943.654:2147596:0.665,973.654:2152872:0.621,1003.656:2049364:0.496,1033.657:1845211:0.399,1063.658:1906696:0.628,1093.662:1574152:0.334,1123.663:1925105:0.580&ctmp=api:rt.852.694;clearQ,pcmp:u,ctype:rt.852.697;ytm,mem:tot.60;max.512;free.15;heap.142;hpall.121;hpfree.16,poa:n,vnorm:rt.852.723;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;mode.TRACK;tar.-14.0;pre.-25.56;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,mlat:rt.852.724;loadVideo.28572,llv:28,vc:i.7,flags:2,mime_fb:rt.852.709;1,pmqs:none,vnorm:rt.852.784;rng.0.0;trkcfg.-25.56;tarcfg.Optional%5B-14.0%5D;trkfmt.-22.53;mode.TRACK;tar.-14.0;pre.-22.53;ang.0.0;inpvol.1.0;mult.1.0;outvol.1.0,cir:rt.852.942;reused.false;reason.CODEC_INIT_REASON_BACKGROUND,dec:c2.qti.vp9.decoder,bh0:tr1.18.948;tr2.15.314,api:rt.1128.909;clearQ,vc:i.10,flags:2,pcmp:u,pcmp:u,ctype:rt.1128.930;ytm,poa:n&seq=10&docid=(scrubbed)', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:45:47,316 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:52:58,703 - root - INFO - Initializing database...
+2026-05-02 18:52:58,711 - root - INFO - Database initialized successfully
+2026-05-02 18:53:18,139 - app.routes.logs - INFO - File saved: logs\20260502_185318_logcat.txt
+2026-05-02 18:53:18,378 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:53:25,656 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:53:29,785 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:53:29,785 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:53:30,156 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:55:48,294 - root - INFO - Initializing database...
+2026-05-02 18:55:48,297 - root - INFO - Database initialized successfully
+2026-05-02 18:56:21,676 - app.routes.logs - INFO - File saved: logs\20260502_185621_logcat.txt
+2026-05-02 18:56:21,912 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:56:28,469 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:56:32,397 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:56:32,397 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:56:32,768 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:56:57,412 - app.routes.logs - INFO - File saved: logs\20260502_185657_logcat.txt
+2026-05-02 18:56:57,631 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 18:57:04,124 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 18:57:07,940 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 18:57:07,941 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 18:57:08,308 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 18:58:05,678 - root - INFO - Shutting down application...
+2026-05-02 19:16:15,767 - root - INFO - Initializing database...
+2026-05-02 19:16:15,776 - root - INFO - Database initialized successfully
+2026-05-02 19:16:29,897 - app.routes.logs - INFO - File saved: logs\20260502_191629_logcat.txt
+2026-05-02 19:16:30,142 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 19:16:37,425 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 19:16:41,404 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 19:16:41,405 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 19:16:41,766 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 19:21:52,729 - root - INFO - Initializing database...
+2026-05-02 19:21:52,738 - root - INFO - Database initialized successfully
+2026-05-02 19:22:31,632 - app.routes.logs - INFO - File saved: logs\20260502_192231_logcat.txt
+2026-05-02 19:22:31,883 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-02 19:22:39,283 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-02 19:22:43,216 - app.routes.logs - INFO - Saved device info to database
+2026-05-02 19:22:43,216 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-02 19:22:43,593 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-02 19:24:12,044 - root - INFO - Shutting down application...
+2026-05-04 23:35:11,103 - root - INFO - Initializing database...
+2026-05-04 23:35:11,116 - root - INFO - Database initialized successfully
+2026-05-04 23:35:27,432 - app.routes.logs - INFO - File saved: logs\20260504_233527_logcat.txt
+2026-05-04 23:35:28,140 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:35:45,047 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:35:54,875 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:35:54,876 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:35:55,769 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-04 23:36:18,135 - app.routes.logs - INFO - File saved: logs\20260504_233618_logcat.txt
+2026-05-04 23:36:18,795 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:36:38,821 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:36:49,146 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:36:49,147 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:36:50,052 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-04 23:41:30,006 - app.routes.logs - INFO - File saved: logs\20260504_234129_logcat.txt
+2026-05-04 23:41:30,754 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:41:48,035 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:41:57,918 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:41:57,919 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:41:58,810 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-04 23:46:08,881 - app.routes.logs - INFO - File saved: logs\20260504_234608_logcat.txt
+2026-05-04 23:46:09,771 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:46:30,459 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:46:43,464 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:46:43,465 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:46:44,433 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-04 23:53:12,529 - app.routes.logs - INFO - File saved: logs\20260504_235312_logcat.txt
+2026-05-04 23:53:12,775 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:53:19,686 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:53:23,668 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:53:23,668 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:53:24,043 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-04 23:55:56,797 - app.routes.logs - INFO - File saved: logs\20260504_235556_logcat.txt
+2026-05-04 23:55:57,040 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:56:03,877 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:56:07,940 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:56:07,940 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:56:08,312 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-04 23:56:24,963 - root - INFO - Shutting down application...
+2026-05-04 23:56:35,111 - root - INFO - Initializing database...
+2026-05-04 23:56:35,115 - root - INFO - Database initialized successfully
+2026-05-04 23:57:30,686 - app.routes.logs - INFO - File saved: logs\20260504_235730_logcat.txt
+2026-05-04 23:57:30,956 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-04 23:57:38,182 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-04 23:57:42,590 - app.routes.logs - INFO - Saved device info to database
+2026-05-04 23:57:42,590 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-04 23:57:43,045 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:05:22,633 - app.routes.logs - INFO - File saved: logs\20260505_000522_logcat.txt
+2026-05-05 00:05:22,867 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:05:29,818 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:05:33,908 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:05:33,909 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:05:34,313 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:05:55,947 - app.routes.logs - INFO - File saved: logs\20260505_000555_logcat.txt
+2026-05-05 00:05:56,180 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:06:03,212 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:06:07,390 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:06:07,390 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:06:07,780 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:07:50,068 - app.routes.logs - INFO - File saved: logs\20260505_000750_logcat.txt
+2026-05-05 00:07:50,298 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:07:57,450 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:08:01,607 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:08:01,607 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:08:01,985 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:11:00,464 - app.routes.logs - INFO - File saved: logs\20260505_001100_logcat.txt
+2026-05-05 00:11:00,703 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:11:07,814 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:11:12,187 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:11:12,188 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:11:12,574 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:13:25,804 - app.routes.logs - INFO - File saved: logs\20260505_001325_logcat.txt
+2026-05-05 00:13:26,032 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:13:33,146 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:13:37,243 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:13:37,243 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:13:37,623 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:15:42,932 - app.routes.logs - INFO - File saved: logs\20260505_001542_logcat.txt
+2026-05-05 00:15:43,168 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:15:50,556 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:15:54,505 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:15:54,506 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:15:54,867 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:16:43,961 - app.routes.logs - INFO - File saved: logs\20260505_001643_logcat.txt
+2026-05-05 00:16:44,188 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:16:51,413 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:16:55,467 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:16:55,467 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:16:55,848 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-05-05 00:21:18,832 - app.routes.logs - INFO - File saved: logs\20260505_002118_logcat.txt
+2026-05-05 00:21:19,063 - app.services.log_parser - INFO - Parsed 73024 logs, 3 malformed lines
+2026-05-05 00:21:26,148 - app.routes.logs - INFO - Inserted 73024 logs into database
+2026-05-05 00:21:30,244 - app.routes.logs - INFO - Saved device info to database
+2026-05-05 00:21:30,244 - app.routes.logs - INFO - Extracted device info: {'device_model': 'ET45', 'manufacturer': 'Zebra Technologies', 'battery_health': '2', 'temperature': '343', 'registered_date': 'receiver'}
+2026-05-05 00:21:30,628 - app.routes.logs - INFO - Updated error summary with 5 error types
+2026-07-11 01:13:55,274 - root - INFO - Initializing database...
+2026-07-11 01:13:55,282 - root - INFO - Database initialized successfully
+2026-07-11 02:29:16,725 - root - INFO - Initializing database...
+2026-07-11 02:29:16,734 - root - INFO - Database initialized successfully
+2026-07-11 02:30:39,219 - root - INFO - Initializing database...
+2026-07-11 02:30:39,222 - root - INFO - Database initialized successfully

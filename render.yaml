@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: device-log-intelligence
+    runtime: python
+    plan: starter
+    # Force a Python version with prebuilt wheels (avoids Rust compilation failures)
+    pythonVersion: 3.11
+
+    region: oregon
+    buildCommand: pip install -r requirements-render.txt
+    # Render build step: install Python deps before starting the server
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: DATABASE_URL
+        value: "sqlite:///./device_logs.db"
+
